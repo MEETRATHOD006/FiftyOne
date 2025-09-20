@@ -40,3 +40,20 @@ contactForm.addEventListener("submit", (e) => {
   // Reset form
   contactForm.reset();
 });
+
+// Mobile hamburger menu toggle
+const hamburger = document.getElementById("hamburger");
+const navMenu = document.getElementById("navMenu");
+
+hamburger.addEventListener("click", () => {
+  navMenu.classList.toggle("active");
+  hamburger.classList.toggle("active");
+});
+
+// Close menu when a link is clicked
+document.querySelectorAll("#navMenu ul li a").forEach(link => {
+  link.addEventListener("click", () => {
+    navMenu.classList.remove("active");
+    hamburger.classList.remove("active");
+  });
+});
