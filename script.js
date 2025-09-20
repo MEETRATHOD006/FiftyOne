@@ -3,20 +3,30 @@ window.addEventListener("load", () => {
   const one = document.querySelector(".one");
   const intro = document.querySelector(".intro");
   const header = document.querySelector("header");
+  const logo = document.querySelector(".logo");
+  const nav = document.querySelector("nav");
+  const home = document.getElementById("home"); // your first page section
 
   // GSAP timeline for intro
   let tl = gsap.timeline({ defaults: { ease: "power2.out" } });
 
   tl.to(fifty, { opacity: 1, duration: 1 })       // fade in "Fifty"
-    .to(one, { opacity: 1, duration: 1 }, "+=0.5") // fade in "One" below
+    .to(one, { opacity: 1, duration: 1 }, "+=0.5") // fade in "One"
     .to([fifty, one], { opacity: 0, duration: 1, delay: 1 }) // fade out both
     .to(intro, { opacity: 0, duration: 1, onComplete: () => {
         intro.style.display = "none";
-        header.style.opacity = 1;
         document.body.style.overflowY = "auto"; // unlock scroll
       }
-    });
+    })
+    // Step 1: Fade in header
+    .fromTo(header, { opacity: 0, y: -30 }, { opacity: 1, y: 0, duration: 1 })
+    .fromTo(logo, { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 1 }, "-=0.5")
+    .fromTo(nav, { opacity: 0, x: 30 }, { opacity: 1, x: 0, duration: 1 }, "-=0.5")
+    // Step 2: Fade in Home content
+    .fromTo(home, { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 1 }, "+=0.3");
 });
+
+
 
 
 // WhatsApp form submission
@@ -57,3 +67,12 @@ document.querySelectorAll("#navMenu ul li a").forEach(link => {
     hamburger.classList.remove("active");
   });
 });
+
+// Hero animation
+window.addEventListener("load", () => {
+  gsap.from(".hero-title", { y: 50, opacity: 0, duration: 1, delay: 0.5, ease: "power3.out" });
+  gsap.from(".hero-subtitle", { y: 50, opacity: 0, duration: 1, delay: 1, ease: "power3.out" });
+  gsap.from(".hero-button", { y: 50, opacity: 0, duration: 1, delay: 1.5, ease: "power3.out" });
+  gsap.from(".hero-image img", { scale: 0.95, opacity: 0, duration: 1, delay: 2, ease: "power3.out" });
+});
+
