@@ -166,3 +166,70 @@ section {
 html {
   scroll-behavior: smooth; /* smooth scroll for nav */
 }
+
+/* Hamburger button */
+.hamburger {
+  display: none; /* hidden on desktop */
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  height: 3px;
+  width: 100%;
+  background: #d4af37;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+/* Mobile nav */
+@media (max-width: 768px) {
+  nav {
+    position: fixed;
+    top: 70px; /* below header */
+    right: -100%; /* hidden by default */
+    width: 200px;
+    height: calc(100vh - 70px);
+    background: rgba(11,11,11,0.95);
+    flex-direction: column;
+    justify-content: start;
+    padding: 2rem;
+    transition: right 0.3s ease;
+    z-index: 1500;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  nav ul li a {
+    padding: 10px 15px;
+    font-size: 1.2rem;
+    background: rgba(255,255,255,0.1);
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  nav.active {
+    right: 0; /* show menu */
+  }
+}
+
+/* Hamburger animation when active */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+
