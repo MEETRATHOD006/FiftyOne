@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fifty One</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <!-- Intro -->
+  <div class="intro">
+    <h1 class="title">
+      <span class="fifty">Fifty</span>
+      <span class="one">One</span>
+    </h1>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="logo" id="logo">51</div>
+    <nav>
+      <ul>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#team">Our Team</a></li>
+        <li><a href="#whyus">Why Us</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Sections -->
+  <section id="products">🚀 Our Products</section>
+  <section id="team">👥 Our Team</section>
+  <section id="whyus">💡 Why Choose Us</section>
+
+  <section id="contact">
+  <div class="contact-container">
+    <h2>📞 Contact Us via WhatsApp</h2>
+    <form id="contactForm">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" placeholder="Your name" required />
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Your email" required />
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" placeholder="Your message" rows="5" required></textarea>
+      </div>
+      <button type="submit">Send via WhatsApp</button>
+    </form>
+  </div>
+  </section>
+
+
+
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
