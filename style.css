@@ -82,14 +82,12 @@ nav ul li a:hover {
   transform:translateY(-2px);
 }
 
-/* Sections */
+
 section {
-  height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  font-size:3rem;
-  font-weight:bold;
+  position: relative;
+  width: 100%;
+  padding: 4rem 2rem;
+  box-sizing: border-box;
 }
 
 /* Hero Section */
@@ -98,7 +96,7 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, #0b0b0b 0%, #1a1a1a 100%);
+  background: linear-gradient(135deg, #0b0b0b 0%, #383838 100%);
   color: #fff;
   position: relative;
   overflow: hidden;
@@ -169,30 +167,11 @@ section {
   100% { opacity: 1; transform: scale(1); }
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .hero-container {
-    flex-direction: column-reverse;
-    text-align: center;
-  }
 
-  .hero-image img {
-    max-width: 90%;
-    margin-bottom: 2rem;
-  }
-
-  .hero-title {
-    font-size: 3rem;
-  }
-
-  .hero-subtitle {
-    font-size: 1.2rem;
-  }
-}
 
 /* Section */
 #products {
-  background: #0c0c0c;
+  background: linear-gradient(135deg, #2c3230 0%, #0d1a2f 100%);
   padding: 6rem 2rem;
   text-align: center;
 }
@@ -278,151 +257,117 @@ section {
   opacity: 0.7;
 }
 
-/* Responsive */
-@media (max-width: 1100px) {
-  .products-container {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 700px) {
-  .products-container {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* Team Section */
+/* TEAM SECTION */
 #team {
-  background: #0c0c0c;
+  background: linear-gradient(135deg, #00001a 0%, #313645 100%);
+  padding: 6rem 2rem;
   color: #fff;
   display: flex;
   flex-direction: column;
-  padding: 4rem 2rem;
   gap: 4rem;
 }
 
-/* CEO Spotlight */
 .ceo {
   display: flex;
   align-items: center;
-  gap: 2.5rem;
-  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap; /* allows stacking on mobile */
 }
 
 .ceoimg {
-  flex: 1;
+  flex: 1 1 300px;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
-
 .ceoimg img {
-  width: 320px;
-  height: 320px;
+  width: 380px;
+  height: 380px;
   object-fit: cover;
   border-radius: 20%;
-  border: 1px solid white; /* gold glow */
+  border: 1px solid #ffffff;
 }
 
 .aboutceo {
-  flex: 1;
+  flex: 1 1 300px;
   text-align: left;
-  padding: 1rem;
-  border-bottom: 1px solid gray;
 }
-
 .aboutceo h2 {
-  font-size: 2.5rem;
-  font-weight: 800;
-  color: #fff;
+  font-size: 2rem;
+  color: #d4af37; /* golden highlight */
+  margin-bottom: 0.5rem;
 }
-
 .aboutceo .role {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: #d4af37; /* gold accent */
-  margin: 0.5rem 0 1.5rem;
+  font-weight: 500;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: #bbb;
 }
-
 .aboutceo .bio {
-  font-size: 1rem;
-  color: #ccc;
   line-height: 1.6;
+  font-size: 1rem;
+  color: #ddd;
 }
 
-/* Partners (Founder + Co-founder) */
+/* --- Partners --- */
 .partner {
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  gap: 16rem;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 0% 8%;
 }
 
 .member {
-  flex: 1;
-  text-align: center;
-  max-width: 400px;
-  /* padding: 2rem 1rem; */
-  transition: all 0.3s ease;
+  background: rgba(255,255,255,0.05);
+  border-radius: 1rem;
+  padding: 2rem;
   display: flex;
-  gap: 28px;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 50%;
+  gap: 16px;
+}
+.member:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
 }
 
-.member img {
-  width: 180px;
-  height: 180px;
+.imagcontainerformember img {
+  width: 200px;
+  height: 200px;
   object-fit: cover;
   border-radius: 50%;
+  border: 3px solid #444;
+  margin-bottom: 1.2rem;
+}
+
+.textcontainerformember h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #1e90ff; /* accent color for names */
+}
+.textcontainerformember .role {
+  font-weight: 500;
   margin-bottom: 1rem;
-  box-shadow: 0 0 20px rgba(255,255,255,0.1);
+  color: #bbb;
+}
+.textcontainerformember .bio {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #ddd;
 }
 
 .textcontainerformember {
   text-align: left;
 }
 
-.member h3 {
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin-bottom: 0.3rem;
-}
-
-.member .role {
-  font-size: 1rem;
-  font-weight: 600;
-  color: #1e90ff; /* luxury blue accent */
-  margin-bottom: 1rem;
-}
-
-.member .bio {
-  font-size: 0.95rem;
-  color: #bbb;
-  line-height: 1.5;
-}
-
-/* Hover effect */
-.member:hover {
-  transform: translateY(-8px);
-}
-
-@media (max-width: 900px) {
-  .ceo {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .aboutceo {
-    text-align: center;
-  }
-
-  .partner {
-    flex-direction: column;
-  }
-}
 
 /* Why Choose Us Section */
 #whyus {
-  background: #111;
+  background: linear-gradient(135deg, #1a1f2e 0%, #2b123d 100%);
   color: #fff;
   padding: 6rem 2rem;
   text-align: center;
@@ -471,16 +416,13 @@ section {
   color: #d4af37;
 }
 
-/* Responsive */
-@media (max-width: 900px) {
-  .whyus-grid {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
 
-  .whyus-item p {
-    margin-bottom: 2rem;
-  }
+#products,
+#team,
+#whyus {
+  height: auto;      /* let them grow naturally */
+  min-height: 100vh; /* optional: force at least full screen height */
+  overflow: visible; /* prevent cutting off */
 }
 
 
@@ -554,10 +496,10 @@ section {
 }
 
 #home { background-color: #1e90ff; color: white;}
-#products { background:#141414; color:#d4af37; }
-#team { background:#0f1a2b; color:#f5f5f5; }
-#whyus { background:#1a1a1a; color:#1e90ff; }
-#contact { background:#101010; color:#f5f5f5; }
+#products { background:linear-gradient(135deg, #2c3230 0%, #0d1a2f 100%); color:#d4af37; }
+#team { background: linear-gradient(135deg, #00001a 0%, #313645 100%); color:#f5f5f5; }
+#whyus { background:linear-gradient(135deg, #1a1f2e 0%, #2b123d 100%); color:#1e90ff; }
+#contact { background: linear-gradient(135deg, #2b123d 0%, #101010 100%); color:#f5f5f5; }
 
 html {
   scroll-behavior: smooth; /* smooth scroll for nav */
@@ -725,15 +667,198 @@ footer {
   padding-top: 1rem;
 }
 
-/* Responsive */
-@media (max-width: 900px) {
-  .footer-container {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+
+/* =====================
+   HERO SECTION
+===================== */
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2.2rem;
+    line-height: 1.3;
   }
 
-  .footer-brand, .footer-contact, .footer-links, .footer-social {
+  .hero-subtitle {
+    font-size: 1rem;
+    margin: 15px 0;
+  }
+
+  .hero-button {
+    padding: 12px 25px;
+    font-size: 0.9rem;
+  }
+
+  .hero-image img {
+    max-width: 100%;
+  }
+}
+
+/* =====================
+   PRODUCTS SECTION
+===================== */
+@media (max-width: 480px) {
+  #products h2 {
+    font-size: 2rem;
     margin-bottom: 2rem;
+  }
+
+  .products-container {
+    grid-template-columns: 1fr; /* single column on very small screens */
+    gap: 1.5rem;
+  }
+
+  .product-card {
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+    height: auto; /* let height expand */
+    padding: 1.5rem 1rem;
+  }
+
+  .product-card h3 {
+    font-size: 1.4rem;
+  }
+}
+
+/* =====================
+   TEAM SECTION
+===================== */
+@media (max-width: 480px) {
+  .ceoimg img {
+    width: 280px;
+    height: 280px;
+  }
+
+  .aboutceo h2 {
+    font-size: 1.8rem;
+  }
+
+  .aboutceo .role {
+    font-size: 1rem;
+  }
+
+  .partner {
+    gap: 2rem;
+    padding: 0;
+    flex-wrap: wrap;
+    padding: 0% 0%;
+  }
+
+  .member {
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+  }
+
+  .member img {
+    width: 140px;
+    height: 140px;
+    margin: 0 auto 1rem;
+  }
+
+  .textcontainerformember {
+    text-align: center;
+  }
+}
+
+/* =====================
+   WHY US SECTION
+===================== */
+@media (max-width: 480px) {
+  .whyus-container h2 {
+    font-size: 2rem;
+  }
+
+  .whyus-container .tagline {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .whyus-item h3 {
+    font-size: 1.2rem;
+  }
+}
+
+/* =====================
+   CONTACT FORM
+===================== */
+@media (max-width: 480px) {
+  .contact-container {
+    padding: 2rem 1rem;
+  }
+
+  .contact-container h2 {
+    font-size: 1.8rem;
+  }
+}
+
+/* =====================
+   FOOTER
+===================== */
+@media (max-width: 480px) {
+  .footer-brand h2 {
+    font-size: 1.5rem;
+  }
+
+  .footer-contact h3,
+  .footer-links h3,
+  .footer-social h3 {
+    font-size: 1rem;
+  }
+
+  .footer-links ul li a,
+  .footer-social .social-icons a {
+    font-size: 0.9rem;
+  }
+
+  .footer-bottom {
+    font-size: 0.75rem;
+  }
+}
+
+/* TEAM FIX */
+.ceo, .partner {
+  width: 100%;
+  height: auto;      /* remove the 50% height */
+  display: flex;   /* so content stacks on smaller screens */
+}
+
+.ceoimg, .aboutceo {
+  width: 100%;       /* stack in mobile */
+  /* max-width: 50%;    side by side in desktop */
+}
+
+@media (min-width: 768px) {
+  .ceoimg, .aboutceo {
+    width: 50%; /* only side by side in bigger screens */
+  }
+}
+
+/* PRODUCT FIX */
+.products-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  align-items: stretch;
+}
+.product-card {
+  height: auto; /* remove fixed height */
+  padding: 2rem;
+}
+
+/* WHY US FIX */
+.whyus-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* --- Responsive Tweaks --- */
+@media (max-width: 768px) {
+  .ceo {
+    flex-direction: column;
+    text-align: center;
+  }
+  .aboutceo {
+    text-align: center;
   }
 }
